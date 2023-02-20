@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/dots.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/timer.css">
+    <title>Document</title>
+</head>
+
+<style>
+    body
+    {
+        background-color: rgb(2, 56, 126);
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+
+    }
+    .cube div
+    {
+        background-color: hsla(0,0%,100%,.25);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        border: 2px solid #fff;
+    }
+    .cube 
+    {
+        position: relative;
+        left: 50%;
+        top: 10rem;
+    }
+
+    h1
+    {
+        color: rgb(255, 251, 0);
+        font-family:Constantia;
+        font-size: 45px;
+    }
+    .wait
+    {
+        position: absolute;
+        text-align: center;
+        top: 20rem;
+        left: 12px;
+        text-transform:capitalize;
+    }
+    p
+    {
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+    }
+
+    /* dots loading secrion */
+
+    .dots-fade:before
+    {
+        animation: dots-fade 2s infinite;
+        background-color: #fff;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 20px;
+        width: 20px;
+    }
+    ::before
+    {
+        box-sizing: border-box;
+    }
+    :root {
+    --bg: $bg;
+    --primary: #fafafa;
+    --secondary: #f9690e;
+    }
+
+    .dot
+    {
+        position: relative;
+        align-items: center;
+        bottom: 150px;
+    } 
+
+
+    /* last row  */
+
+    h3
+    {
+       color: #fff; 
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+       text-transform: lowercase;
+    }
+ .btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #00f08c;
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #00f08c, #1dd600);
+  background-image: -moz-linear-gradient(top, #00f08c, #1dd600);
+  background-image: -ms-linear-gradient(top, #00f08c, #1dd600);
+  background-image: -o-linear-gradient(top, #00f08c, #1dd600);
+  background-image: linear-gradient(to bottom, #00f08c, #1dd600);
+  text-decoration: none;
+}
+
+</style>
+<body>
+   <div class="container ">
+    <div class="cube">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>    
+    </div>
+        <div class="row">
+            <div class="col col-md wait">
+                <h1>Loading Content <p> Wait patiently </p></h1>
+                    <div class="dots-flow  dot col-md"></div>
+                   <div class="w-100"></div>
+                   <div class="col">
+                    <h3>Click to. <button onclick="load()" class="btn"> Continue.. </button> </h3>
+                    <div class="w-100"></div>
+                    <p id="message" style="font-family: sans sarif;"></p>
+                   </div>
+
+                   <!-- countdown timer  -->
+                   <div class="card">
+                    
+                    <div class="number"> Press Continue After 10 sec </div>
+                   
+                   </div>
+                   
+                    
+            </div>
+        </div>
+   </div>
+
+   <script>
+     function load() {
+         setTimeout(myURL, 6000);
+          //   printing a message after clciking continue 
+        var result = document.getElementById("message");
+         result.innerHTML = "Your content in coming in 6 sec";
+      }
+      function myURL() {
+         window.open('main page.html', name = self);
+      }
+
+    // countdown timer   
+    var number = document.querySelector(".number");
+    var count = 7;
+    // Countdown Interval which runs on every 1s
+    var countdownInterval = setInterval(() => {
+    // if count is less than or equal to 1 then clear the Interval
+    count <= 1 && clearInterval(countdownInterval);
+    number.textContent = count >= 10 ? `0${--count}` : `${--count}`;
+    }, 2000);
+
+    
+   </script>
+
+</body>
+</html>
