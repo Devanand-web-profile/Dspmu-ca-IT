@@ -1,0 +1,32 @@
+
+   :root {
+    --text-color: rgb(253, 253, 253);
+    --font: sans-serif;
+    }
+    /* Linear Background by using ::before */
+    .card::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    bottom: -4px;
+    right: -4px;
+    }
+    /* countdown number */
+    .card >.number {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    font-size: 25px;
+    display: grid;
+    place-items: center;
+    color: var(--text-color);
+    }
+.card
+{
+    background-color: rgb(2, 56, 126);
+    border: 0px solid ;
+    color: aliceblue;
+
+}
